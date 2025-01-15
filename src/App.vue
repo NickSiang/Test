@@ -7,10 +7,10 @@ import NavMain from '@/components/NavMain.vue'
 </script>
 
 <template>
-  <div class="w-full max-w-[1920px] mx-auto ">
-    <NavMain />
+  <div class="w-full max-w-[1920px] ">
+    <!-- <NavMain /> -->
     <RouterView />
-    <FooterMain />
+    <!-- <FooterMain /> -->
   </div>
 </template>
 
