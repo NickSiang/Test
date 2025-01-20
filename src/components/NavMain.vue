@@ -126,14 +126,14 @@
             </div>
         </router-link>
 
-        <ul>
-            <!-- <li class="">關於我們</li>
+        <!-- <ul>
+            <li class="">關於我們</li>
             <li class="">最新消息</li>
             <li class="">服務項目</li>
             <li class="">參與曉明</li>
             <li class="">聯絡我們</li>
-            <li class="">捐款支持</li> -->
-        </ul>
+            <li class="">捐款支持</li>
+        </ul> -->
     </nav>
 
 </template>

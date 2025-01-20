@@ -1,91 +1,64 @@
 <script>
-import banner1 from '@/assets/img/swiper-banner.png';
-import banner2 from '@/assets/img/swiper-banner2.png';
+import Card from '@/components/Card.vue';
+
+import hkplanet from '@/assets/img/hk-planet.png'
+import hkpacman from '@/assets/img/hk-pacman.png'
+import hkpicachu from '@/assets/img/hk-picachu.png'
+import hkmicrosoft from '@/assets/img/hk-microsoft.png'
+import hkweather from '@/assets/img/hk-weather.png'
+import hkcolorgame from '@/assets/img/hk-colorgame.png'
 
 export default {
-    data() {
-        return {
-            images: [
-                {
-                    src: banner1,
-                    tittle: "牽起社區的手，為樂齡打造溫暖的守護",
-                    text: "以溫柔的心關注社會需求，結合社區力量，效法聖母的細膩與關愛，打造多元且人性化的服務網絡，守護每一份安心與信任。",
-                    link: "想看更多"
-                },
-                {
-                    src: banner2,
-                    tittle: "享受在熟悉的環境開始樂齡新篇章",
-                    text: "號外號外!老朋友專線要",
-                    link: "想看更多"
-                },
-            ],
-            currentImageIndex: 0,
-        };
-    },
-    methods: {
-        prevImage() {
-            this.currentImageIndex =
-                (this.currentImageIndex - 1 + this.images.length) % this.images.length;
-        },
-        nextImage() {
-            this.currentImageIndex =
-                (this.currentImageIndex + 1) % this.images.length;
-        },
-    },
+  mounted() {
+    new Swiper(".swiper", {
+      effect: "coverflow",
+      grabCursor: true,
+      centeredSlides: true,
+      slidesPerView: "auto",
+      coverflowEffect: {
+        rotate: 0,
+        stretch: 0,
+        depth: 50,
+        modifier: 5.8,
+        slideShadows: false,
+      },
+      loop: true,
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+    });
+  },
+  data() {
+    return {
+      DataCard: [
+        { link: '', src: hkpacman, label: '', tittle: '小精靈', text: '使用css animation製作' },
+        { link: '', src: hkplanet, label: '', tittle: '地球自轉', text: '使用css animation製作' },
+        { link: '', src: hkpicachu, label: '', tittle: '皮卡丘', text: '使用css animation製作' },
+        { link: '', src: hkcolorgame, label: '', tittle: '色弱遊戲', text: '12' },
+        { link: '', src: hkweather, label: '', tittle: '天氣卡', text: '12' },
+        { link: '', src: hkmicrosoft, label: '', tittle: '微軟仿切', text: '使用原生css仿切微軟首頁RWD加上swiper製作' },
+      ]
+    };
+  },
+  components: {
+    Card,
+  }
 };
 </script>
 
 <template>
-    <div class="w-full text-[#f3f2e9] relative flex items-center justify-center  bg-cover bg-center">
-
-        <section class="relative max-w-[1400px]  w-full h-[500px] mx-[10%] overflow-hidden">
-
-            <div v-for="(image, index) in images" :key="index"
-                :class="['image-box', { active: index === currentImageIndex }]"
-                class="absolute top-0 left-0 w-full h-full bg-cover bg-center transition-opacity duration-500">
-
-                <div class="flex w-full h-full">
-
-                    <div class="w-1/2 flex flex-col gap-[40px] justify-center  bg-opacity-50 px-[80px] py-[50px]">
-                        <h1>{{ image.tittle }}</h1>
-                        <h4>{{ image.text }}</h4>
-                        <div class="flex justify-center">
-                            <router-link to="">
-                                <h4 class="group">{{ image.link }} <span class="inline-block group-hover:translate-x-[8px] transition-transform duration-300">→</span></h4>
-                            </router-link>
-                        </div>
-                    </div>
-
-                    <img :src="image.src" alt="" class="w-1/2 object-cover rounded-[50px]">
-
-                </div>
-            </div>
-
-        </section>
-
-
-        <button @click="prevImage"
-            class="opacity-[0.7] absolute left-0 top-1/2 transform -translate-y-1/2  cursor-pointer">
-            <img src="../assets/img/right-arrow.png" alt="">
-        </button>
-
-
-        <button @click="nextImage"
-            class="opacity-[0.7] absolute right-0 top-1/2 transform -translate-y-1/2  cursor-pointer">
-            <img src="../assets/img/left-arrow.png" alt="">
-        </button>
-
+  <div class="swiper">
+    <div class="swiper-wrapper ">
+      <!-- 在這裡將 DataCard 中的每個項目傳遞給 Card -->
+      <div class="w-fit swiper-slide  text-white flex justify-center items-center"
+        v-for="(data, index) in DataCard" :key="index">
+        <Card :data="data"></Card> <!-- 傳遞每個 data 給 Card -->
+      </div>
     </div>
+    <!-- <div class="swiper-pagination"></div> -->
+  </div>
 </template>
 
 <style scoped>
-.image-box {
-    opacity: 0;
-    z-index: 0;
-}
-
-.image-box.active {
-    opacity: 1;
-    z-index: 1;
-}
 </style>

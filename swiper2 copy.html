@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Swiper Carousel</title>
+
+    <style>
+        @import url("https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/Swiper/8.0.6/swiper-bundle.min.css");
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #ffffff;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .swiper {
+            width: 100%;
+            max-width: 1024px;
+            padding-top: 3rem;
+        }
+
+        .swiper-pagination-bullet,
+        .swiper-pagination-bullet-active {
+            background: #333;
+        }
+
+        .swiper-pagination {
+            bottom: 1.25rem !important;
+        }
+
+        .swiper-slide {
+            width: 18.75rem;
+            height: 28.125rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: end;
+            align-items: flex-start;
+            color: #fff;
+            padding: 1rem;
+        }
+
+        .swiper-slide h2 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .swiper-slide p {
+            font-size: 0.875rem;
+            line-height: 1.5;
+        }
+
+        .swiper-slide a {
+            margin-top: 1rem;
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            font-size: 0.875rem;
+            color: #005baa;
+            background: #fff;
+            border-radius: 0.25rem;
+            text-decoration: none;
+        }
+
+        .swiper-slide--one {
+            background: linear-gradient(to top, #0f2027, #203a4300, #2c536400), url("https://images.unsplash.com/photo-1628944682084-831f35256163?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80") no-repeat center/cover;
+        }
+
+        .swiper-slide--two {
+            background: linear-gradient(to top, #0f2027, #203a4300, #2c536400), url("https://images.unsplash.com/photo-1515309025403-4b0184873cef?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80") no-repeat center/cover;
+        }
+
+        .swiper-slide--three {
+            background: linear-gradient(to top, #0f2027, #203a4300, #2c536400), url("https://images.unsplash.com/photo-1545671913-b89ac1b4ac10?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80") no-repeat center/cover;
+        }
+
+        .swiper-slide--four {
+            background: linear-gradient(to top, #0f2027, #203a4300, #2c536400), url("https://images.unsplash.com/photo-1598977123118-4e30ba3c4f5b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80") no-repeat center/cover;
+        }
+
+        .swiper-slide--five {
+            background: linear-gradient(to top, #0f2027, #203a4300, #2c536400), url("https://images.unsplash.com/photo-1570481662006-a3a1374699e8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=765&q=80") no-repeat center/cover;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="swiper">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide swiper-slide--one">
+                <h2>Jellyfish</h2>
+                <p>Jellyfish are gelatinous members of the subphylum Medusozoa, a part of the phylum Cnidaria.</p>
+                <a href="#">Explore</a>
+            </div>
+            <div class="swiper-slide swiper-slide--two">
+                <h2>Seahorse</h2>
+                <p>Seahorses are found in shallow tropical and temperate salt water, living in sheltered areas.</p>
+                <a href="#">Explore</a>
+            </div>
+            <div class="swiper-slide swiper-slide--three">
+                <h2>Octopus</h2>
+                <p>Octopuses inhabit coral reefs, pelagic waters, and the seabed, with diverse species worldwide.</p>
+                <a href="#">Explore</a>
+            </div>
+            <div class="swiper-slide swiper-slide--four">
+                <h2>Shark</h2>
+                <p>Sharks are a group of cartilaginous fish with distinctive gill slits and pectoral fins.</p>
+                <a href="#">Explore</a>
+            </div>
+            <div class="swiper-slide swiper-slide--five">
+                <h2>Dolphin</h2>
+                <p>Dolphins are widespread aquatic mammals, feeding on fish, squid, and sometimes larger prey.</p>
+                <a href="#">Explore</a>
+            </div>
+        </div>
+        <div class="swiper-pagination"></div>
+    </div>
+
+    <script src="https://lf6-cdn-tos.bytecdntp.com/cdn/expire-1-M/Swiper/8.0.6/swiper-bundle.min.js"></script>
+    <script>
+        var swiper = new Swiper(".swiper", {
+            effect: "coverflow",
+            grabCursor: true,
+            centeredSlides: true,
+            slidesPerView: "auto",
+            coverflowEffect: {
+                rotate: 0,
+                stretch: 0,
+                depth: 50,
+                modifier: 3,
+                slideShadows: true,
+            },
+            loop: true,
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+        });
+    </script>
+</body>
+
+</html>

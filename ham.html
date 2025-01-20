@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>漢堡條父子選單</title>
+    <style>
+        /* 基本樣式 */
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .hamburger {
+            cursor: pointer;
+            width: 30px;
+            height: 25px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .bar {
+            width: 100%;
+            height: 4px;
+            background-color: #333;
+        }
+
+        .menu {
+            list-style: none;
+            padding: 0;
+            margin: 10px 0;
+        }
+
+        .menu-item {
+            margin: 5px 0;
+        }
+
+        .submenu {
+            list-style: none;
+            padding-left: 20px; /* 子選單縮排 */
+            display: none; /* 預設隱藏 */
+        }
+
+        .submenu.show {
+            display: block; /* 顯示子選單 */
+        }
+
+        .menu a {
+            text-decoration: none;
+            color: #333;
+        }
+
+        .menu.hide {
+            display: none; /* 漢堡條未展開時，隱藏整個父選單 */
+        }
+    </style>
+</head>
+<body>
+    <!-- 漢堡條 -->
+    <div class="hamburger" id="hamburger">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+    </div>
+
+    <!-- 菜單 -->
+    <ul class="menu hide" id="menu">
+        <li class="menu-item">
+            <a href="#" class="toggle-submenu">父選單 1</a>
+            <ul class="submenu">
+                <li class="submenu-item"><a href="#">子選單 1-1</a></li>
+                <li class="submenu-item"><a href="#">子選單 1-2</a></li>
+            </ul>
+        </li>
+        <li class="menu-item">
+            <a href="#" class="toggle-submenu">父選單 2</a>
+            <ul class="submenu">
+                <li class="submenu-item"><a href="#">子選單 2-1</a></li>
+                <li class="submenu-item"><a href="#">子選單 2-2</a></li>
+            </ul>
+        </li>
+    </ul>
+
+    <script>
+        // 漢堡條點擊事件：顯示或隱藏整個父選單
+        const hamburger = document.getElementById("hamburger");
+        const menu = document.getElementById("menu");
+
+        hamburger.addEventListener("click", () => {
+            menu.classList.toggle("hide");
+        });
+
+        // 父選單點擊事件：顯示或隱藏子選單
+        const submenuToggles = document.querySelectorAll(".toggle-submenu");
+        submenuToggles.forEach(toggle => {
+            toggle.addEventListener("click", (event) => {
+                event.preventDefault(); // 防止預設行為
+                const submenu = toggle.nextElementSibling; // 選取子選單
+                submenu.classList.toggle("show");
+            });
+        });
+    </script>
+</body>
+</html>

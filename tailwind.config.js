@@ -8,30 +8,32 @@ module.exports = {
   theme: {
     extend: {
       backgroundImage: {
-        'fm-gradient': "linear-gradient(180deg, #EBE7DD 0%, #E8E4D8 30% ,#CBCCA8 100%)",
-        'hd-gradient': "linear-gradient(180deg, #E7E5D4 -51.1%, #E7E5D4 2%, #AABEBA 46.06%, #64919B 90.55%)",
-        'main-gradient': "linear-gradient(180deg, #64919B 10%, #CBCCA8 100%)",
+        'custom-gradient': 'linear-gradient(145deg, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8))',
       },
-      keyframes: {
-        moveBackground: {
-          '0%': { backgroundPosition: '0% 0%' },
-          '100%': { backgroundPosition: '100% 100%' },
-        },
-        rollBall: {
-          '0%': { transform: 'rotate(0deg)' },
-          '100%': { transform: 'rotate(360deg)' },
-        },
-      },
-      animation: {
-        moveBackground: 'moveBackground 60s linear infinite',
-        rollBall: 'rollBall 5s linear infinite',
-      },
-      fontFamily: {
-        noto: ['Noto Serif TC, serif'],
+      boxShadow: {
+        'custom-shadow': '9px 9px 22px #b3b3b3, -9px -9px 22px #ffffff',
+        'inset-soft': 'inset 7px 7px 44px #e8e8e8, inset -7px -7px 44px #ffffff',
+        'custom-inset': 'inset 0px -2px 50px 0px rgba(10, 37, 64, 0.2)',
+        'custom': '12.8px 12.8px 22.4px rgb(204, 204, 204), -3.2px -3.2px 28.8px rgb(255, 255, 255)',
       },
     },
+    keyframes: {
+      moveBackground: {
+        '0%': { backgroundPosition: '0% 0%' },
+        '100%': { backgroundPosition: '100% 100%' },
+      },
+    },
+    animation: {
+      moveBackground: 'moveBackground 60s linear infinite',
+    },
+
+    fontFamily: {
+      noto: ['Noto Serif TC', 'serif'],
+    },
+
+
+    plugins: [
+      require('@tailwindcss/line-clamp'),
+    ],
   },
-  plugins: [
-    require('@tailwindcss/line-clamp'),
-  ],
 };
